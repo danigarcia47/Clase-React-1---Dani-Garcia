@@ -1,9 +1,5 @@
 .header-navbar {
-  background: linear-gradient(
-    90deg,
-    rgb(255, 255, 255) 0%,
-    rgb #8E8C8B
-  );
+  background: linear-gradient(90deg, #ffffff 40%, rgb(165, 158, 158));
   height: 80px;
   display: flex;
   justify-content: center;
@@ -12,7 +8,7 @@
 }
 
 .navbar-logo {
-  color: #ffffff;
+  color: #312f2f;
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
@@ -20,10 +16,11 @@
 
 .logo-image {
   width: 137px;
+  height: 46px;
   vertical-align: middle;
 }
 
-.fa-futbol {
+.fa-user-graduate {
   margin-left: 0.5rem;
   font-size: 1.6rem;
   vertical-align: middle;
@@ -37,23 +34,24 @@
   text-align: center;
   width: 80vw;
   justify-content: end;
-  margin-right: 2rem;
 }
 
 .navbar-link {
-  color: #ffffff;
+  color: #312f2f;
   text-decoration: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
 
 .navbar-link:hover {
-  background-color: #eb8282;
+  background-color: #2d2d38;
+  font-weight: bold;
+  color: #ffffff;
   border-radius: 4px;
   transition: all 0.2s ease-out;
 }
 
-.navbar-link-mobile {
+.navbar-link-profile {
   color: #ffffff;
   background-color: #181223;
   text-decoration: none;
@@ -62,21 +60,21 @@
   cursor: pointer;
 }
 
-.navbar-link-mobile:hover {
+.navbar-link-profile:hover {
   background-color: #ffffff;
   color: rgb(219, 16, 16);
   transition: all 0.2s ease-out;
 }
 
 .fa-bars {
-  color: #ffffff;
+  color: #312f2f;
 }
 
 .menu-icon {
   display: none;
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1310px) {
   .header-navbar {
     position: relative;
   }
@@ -84,7 +82,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 532px;
+    height: 296px;
     position: absolute;
     top: 80px;
     left: -100%;
@@ -93,7 +91,7 @@
   }
 
   .navbar-menu.active {
-    background: rgb(219, 16, 16);
+    background: rgb(165, 158, 158);
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
@@ -101,6 +99,8 @@
   }
 
   .navbar-link {
+    color: #312f2f;
+    font-weight: bold;
     text-align: center;
     padding: 2rem;
     width: 100%;
@@ -108,7 +108,7 @@
   }
 
   .navbar-link:hover {
-    background-color: #eb8282;
+    background-color: #2d2d38;
     border-radius: 0;
   }
 
@@ -127,11 +127,6 @@
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-  }
-
-  .fa-times {
-    color: #ffffff;
-    font-size: 2rem;
   }
 
   .navbar-link-mobile {

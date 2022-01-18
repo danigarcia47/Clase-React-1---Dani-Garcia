@@ -1,60 +1,54 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {MenuItems} from '../data/MenuItems';
+import { Link } from 'react-router-dom';
+import { MenuItems } from '../data/MenuItems';
 
-import '.header.css';
+import './header.css';
 
 class Header extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = 
-      {clicked: false};
-  }
-
-  createMenuLinks(){
-    const listComponents = [];
-    for (let i = 0; i< MenuItems.length; i++){
-      listComponents.push(
-        <li>
-        <Link to={MenuItems[i].path}>{MenuItems[i].title}</Link>
-      </li>
-      );
-    }
-    return <div />
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: false,
+    };
   }
 
   changeClicked() {
-    this.setState({clicked : !this.state.clicked})
+    this.setState({ clicked: !this.state.clicked });
   }
 
-  render(){
+  render() {
     return (
       <nav className="header-navbar">
         <div className="navbar-logo">
-          <img 
+          <img
             className="logo-image"
-            src="http://iesaglinares.org/meteo/img/iesnuevo.png"/>
-          <div className="fa-futbol"/>
-          <i class="fas-user-graduate"/>
+            src="https://eu01.edcwb.com/buscador/img/centros/logogrande/7348-a9c730d6b2b644f5b9910364ba6af277.jpg"
+          />
+          <i className="fas fa-user-graduate" />
         </div>
-        
-        <div className="navbar-menu">
-          <ul>{this.createMenuLinks()}</ul>
-          <ul>
-            /* Forma map, funcion flecha*/
-            {MenuItems.map((item) => {
-              return(
-                <li key={item.id} className="navbar-link">
-                  <Link to={item.path}>{item.title}</Link>
-                </li>
-                );
-            })}
-          </ul> 
+        <div className="menu-icon" onClick={this.changeClicked.bind(this)}>
+          <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
-        <i className="menu-icon" onClick={this.changeClicked().bind(this)} className={this.state.clicked ? "fa-times" : "fa-bars"} />
+        <ul
+          className={this.state.clicked ? 'navbar-menu active' : 'navbar-menu'}
+        >
+          {MenuItems.map((item) => {
+            return (
+              <li key={item.id}>
+                <Link
+                  to={item.path}
+                  className="navbar-link"
+                  onClick={this.changeClicked.bind(this)}
+                >
+                  {item.title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </nav>
     );
   }
 }
 
-export default header;
+export default Header;

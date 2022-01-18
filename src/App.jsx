@@ -1,33 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { Home } from '.components/Home';
-import { PaginaListas } from './components/PaginaListas';
-import { Perfil } from '.components/Perfil';
-import Header from '.components/Header';
-import {MenuItems} from './data/MenuItems';
-
-function createRoutes() {
-  const listRoutes = [];
-  for (let i = 0; i < MenuItems.length; i++) {
-    <Route path = {MenuItems[i].path} exact component={MenuItems[i].component} />
-  };
-  return listRoutes;
-}
+import Header from './components/Header';
+import BootstrapHeader from './components/BootstrapHeader';
+import { MenuItems } from './data/MenuItems';
 
 export function App() {
   return (
-  <Router>
-    <Header />
-    {/* Metodo con For
-    {createRoutes()}
-    */}
-
-    {/* Metodo con map */}
-    {MenuItems.map(function createRoute(item) {
-      return (
-        <Route path = {item.path} exact component={item.component} />)
-    })}
-  </Router>
+    <Router>
+      <Header />
+      <BootstrapHeader />
+      {MenuItems.map((item) => {
+        return (
+          <Route
+            key={item.id}
+            path={item.path}
+            exact
+            component={item.component}
+          />
+        );
+      })}
+    </Router>
   );
 }
